@@ -5,7 +5,7 @@ layout: default
 
 # MIT Links
 
-A gigantic collection of all the MIT links I think might be useful, many from the Facebook group. Sending me extra links and descriptions to add is super welcome, as are pull requests if you know how, but I want this to be a links page so I prefer short descriptions. Some attempt is made to future-proof this so it might be useful for future students. Subpages might be different.
+A gigantic collection of all the MIT links I think might be useful, many from the Facebook group. Sending me extra links and descriptions to add is super welcome, as are [pull requests to the GitHub repo](https://github.com/betaveros/mit) if you know how, but I want this to be a links page so I prefer short descriptions. Some attempt is made to future-proof this so it might be useful for future students. Subpages might be different.
 
 ## Subpages
 
