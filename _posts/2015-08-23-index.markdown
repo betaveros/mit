@@ -1,0 +1,63 @@
+---
+title: index
+layout: default
+---
+
+# MIT Links
+
+A gigantic collection of all the MIT links I think might be useful, many from the Facebook group. Sending me extra links and descriptions to add is super welcome, as are pull requests if you know how, but I want this to be a links page so I prefer short descriptions. Some attempt is made to future-proof this so it might be useful for future students. Subpages might be different.
+
+## Subpages
+
+- [academics]({% post_url 2015-08-23-academics %}) --- requirements, course evaluations, etc.
+- [tech]({% post_url 2015-08-23-tech %})nical details
+
+## Important Links
+
+- [Certificate Server](https://ca.mit.edu/ca/). Okay, unless you're paranoid and make certificates that expire early, you should only need to do this once per year. But that once per year (late July / early August) may come right before a few important prefrosh deadlines and leave you confused for a while. When it rolls around and you see SSL errors, remember this and don't panic.
+- ["First Year at MIT" portal for c/o 2019](https://web.mit.edu/firstyear/2019/). This has 2019 in the title and URL so is obviously not future-proof. It has most of the important links, but not all of them!
+- [WebSIS (Student Information System) for Students](http://student.mit.edu/cgi-docs/student.html), which links to lots of other things...
+  - [MITPAY](http://student.mit.edu/ent/cgi-bin/mitpay.pl): pay your bills
+  - [Financial Record](https://student.mit.edu/cgi-docs/rspwstop.html) >> [ Student Information Review Form](https://student.mit.edu/cgi-bin/rrpwssirf.sh): fill this out to get your scholarship, if you have one
+- [MIT Emergency Information](http://emergency.mit.net/)
+- Check your [MIT Email](https://owa.exchange.mit.edu/owa/)!
+
+## Housing, REX
+
+- [MIT Guide to Residences](http://mitguidetoresidences.mit.edu/)
+  - [/ Important Dates](http://mitguidetoresidences.mit.edu/important-dates)
+  - [/ First Year Residence Exchange (PDF)](http://mitguidetoresidences.mit.edu/sites/default/files/First%20Year%20Residence%20Exchange15.pdf)
+- [Housing / Dates & Deadlines](https://housing.mit.edu/dates_and_deadlines) (tl;dr (2015): FYRE ends 7/2, we move 7/3)
+- [Floor plan searching](https://floorplans.mit.edu/searchPDF.asp) if you want a diagram of where your (temp) dorm room is
+- [Dormcon Guide to REX](http://rex.mit.edu/)
+
+## What to bring?
+
+- [Housing / What to bring](http://housing.mit.edu/undergraduate/what_bring)
+- MITAdmissions posts
+  - [/ Before You Arrive On Campus: Packing Edition (Yuliya K.)](http://mitadmissions.org/blogs/entry/before-you-arrive-on-campus-packing-edition) (ok this post links to all three other links in this section but anyway)
+  - [/ Don't Forget These (Erick P.)](http://mitadmissions.org/blogs/entry/dont-forget-these)
+  - [/ College Shopping List (Jess K.)](http://mitadmissions.org/blogs/entry/college_shopping_list_1)
+
+## ???
+
+- [MIT Medical](https://medical.mit.edu/)
+- [The Tech on pressure](http://tech.mit.edu/V132/N59/pressure/index.htm)
+- [For the Frosh / MIT](http://www.forthefrosh.com/mit)
+- [Archived version of MIT Course Code Designation Key](https://archive.is/xViRP) + a plug for [MIT Course Number Mnemonics](https://betaveros.wordpress.com/2015/07/18/mit-mnemonics/) by yours truly
+- [Career Fair](https://career-fair.mit.edu/#!/)
+- [MITAdmissions / How to survive your first winter: a college student's guide (Michael C.)](http://mitadmissions.org/blogs/entry/how-to-survive-your-first-winter-a-college-students-guide)
+- [Pool Schedule](http://www.mitrecsports.com/index.php/aquatics/pool-schedule-a-rentals)
+
+## Things
+
+[MIT Admissions / 50 Things (Ben Jones)](http://mitadmissions.org/blogs/entry/50_things)
+
+- [39 Things](https://holdenlee.wordpress.com/2013/09/03/some-college-advice-39-things/)
+- [41 Things](https://medium.com/@mefeakengin/41-things-from-mit-freshman-year-exposures-of-an-international-student-143799ae2dba)
+
+## Other
+
+- [HackMIT](https://hackmit.org/)
+- [Quora / MIT](https://www.quora.com/Massachusetts-Institute-of-Technology-MIT-2#)
+- [http://ihtfp.meteor.com/](http://ihtfp.meteor.com/)

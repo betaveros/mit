@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>mit/{{ page.title }}</title>
+		<style>
+			body { background: url("bg.png") #000 no-repeat fixed; margin: 0; font-family: sans-serif; }
+			code, pre, kbd { font-family: monospace; color: #080; }
+			blockquote { margin-left: 0; padding-left: 1em; border-left: 2px solid #999; }
+			#wrap { background-color: #eee; background-color: rgba(238,238,238,0.95); color: black; margin-left: auto; margin-right: auto; max-width: 1000px; padding: 2px 16px; }
+			#footer { background-color: #000; background-color: rgba(0,0,0,0.95); color: #999; margin-left: auto; margin-right: auto; max-width: 1000px; padding: 2px 16px; text-align: center; }
+			#wrap a:link { font-weight: bold; color: #01e; }
+			#wrap a:visited { font-weight: bold; color: #52a; }
+			#footer a { font-weight: normal; color: #bbb;  }
+			h1, h2 { border-bottom: 1px solid #999; }
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			{{ content }}
+		</div>
+		<div id="footer">
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+		</div>
+	</body>
+</html>

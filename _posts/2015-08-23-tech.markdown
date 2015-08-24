@@ -1,0 +1,62 @@
+---
+title: tech
+layout: default
+---
+
+[<< back to index <<]({% post_url 2015-08-23-index %})
+
+# Getting To the MIT Server
+
+    ssh bpchen@athena.dialup.mit.edu
+
+(Obviously, if you are not me, replace "`bpchen`" here and below with your Kerberos username. If you don't know what this means, familiarize yourself with \*nix and the command-line first --- doing some of these things without understanding what you're doing can be dangerous, I hear.)
+
+# Athena Permissions (fs)
+
+List permissions: `fs la`
+
+Change permissions: `fs sa <dir> <entity> <modes>`
+
+- `<entity>` is like `system:<name of group>`
+- `<modes>` can be `none`, `read`, `write`, `all`, or other letter salads
+
+The one that matters the most for making stuff like this page viewable is `system:anyuser`, who needs permissions `rl`, to **r**ead the contents of files and **l**ist file names in a directory. (This pair is aliased to `read`.)
+
+For more info, see MIT's Knowledge Base: [How do permissions work in AFS?](https://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907002)
+
+---
+
+**MIT policy change, June 2015**: To get the MIT web server to list files in a folder without an `index.html`, you now need to explicitly tell it in a `.htaccess.mit` file (in addition to giving `system:anyuser` permission `l`):
+
+    echo "Options +Indexes" > .htaccess.mit
+
+For more info, see MIT's Knowledge Base: [Why do I get "Forbidden" when trying to view a directory in my Athena locker over the web?](https://kb.mit.edu/confluence/pages/viewpage.action?pageId=154190159)
+
+# Files
+
+[How can I transfer files between Athena and another computer?](https://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907182)
+
+## Upload
+
+    scp file bpchen@ftp.dialup.mit.edu:/mit/bpchen
+
+## Download
+
+    scp bpchen@ftp.dialup.mit.edu:/mit/bpchen/file file
+
+# Stuff
+
+What??
+
+    gem install --user-install kramdown
+    pip install --user Pygments
+
+Then in `.bashrc.mine`:
+
+    PATH="$HOME/.local/bin:$HOME/.gem/ruby/1.9.1/bin:${PATH}"
+    export PATH
+
+Anyway
+
+    kramdown notes.markdown --template template.erb > notes.html
+    pygmentize -O full,style=tango -o primitive-vimrc.html primitive-vimrc.vim
