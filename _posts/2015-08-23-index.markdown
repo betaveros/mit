@@ -9,8 +9,8 @@ A gigantic collection of all the MIT links I think might be useful, many from th
 
 ## Subpages
 
-- [academics]({% post_url 2015-08-23-academics %}) --- requirements, course evaluations, etc.
-- [tech]({% post_url 2015-08-23-tech %})nical details
+- [academics]({{ site.baseurl }}{% post_url 2015-08-23-academics %}) --- requirements, course evaluations, etc.
+- [tech]({{ site.baseurl }}{% post_url 2015-08-23-tech %})nical details
 
 ## Important Links
 

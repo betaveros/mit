@@ -3,7 +3,7 @@ title: academics
 layout: default
 ---
 
-[<< back to index <<]({% post_url 2015-08-23-index %})
+[<< back to index <<]({{ site.baseurl }}{% post_url 2015-08-23-index %})
 
 # Requirements
 

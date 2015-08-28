@@ -1,2 +1,3 @@
 permalink: /:title.html
+baseurl: /mit
 markdown: kramdown
