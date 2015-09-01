@@ -9,7 +9,7 @@ layout: default
 
 Overviews:
 
-- [MIT First Year Academics, by Angus Lai](https://wllai.scripts.mit.edu:444/mit/frosh.php)
+- [MIT First Year Academics, by Angus Lai](https://wllai.scripts.mit.edu:444/mit/frosh.php) (requires certificates)
 - [MITAdmissions / CLAAASS (Yuliya K.)](http://mitadmissions.org/blogs/entry/claaass)
 
 [Online Freshman Advising Folder](https://edu-apps.mit.edu/testscores/FFControl).
@@ -40,8 +40,8 @@ Other links:
 
 The official documents:
 
-- [MIT Course Catalog Bulletin / Undergraduate Education](http://web.mit.edu/catalog/overv.chap3.html)
-- [/ General Institute Requirements](http://web.mit.edu/catalog/overv.chap3-gir.html)
+- [MIT Course Catalog Bulletin / Undergraduate Education](http://catalog.mit.edu/mit/undergraduate-education/)
+- [/ General Institute Requirements](http://catalog.mit.edu/mit/undergraduate-education/general-institute-requirements/)
 
 Just one benchmark I wish I knew earlier: a "normal" course is **12** units. Most exceptions are less than 12.
 
