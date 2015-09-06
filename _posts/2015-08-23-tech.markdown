@@ -5,6 +5,12 @@ layout: default
 
 [<< back to index <<]({{ site.baseurl }}{% post_url 2015-08-23-index %})
 
+# Forwarding Email from MIT
+
+[The Knowledge Base: Q: How can I forward my email to another address?](https://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907262)
+
+tl;dr: [Mail Forwarding (mailto.mit.edu)](https://mailto.mit.edu/)
+
 # Getting To the MIT Server
 
     ssh bpchen@athena.dialup.mit.edu
