@@ -5,6 +5,8 @@ layout: default
 
 [<< back to index <<]({{ site.baseurl }}{% post_url 2015-08-23-index %})
 
+[WebSIS](http://student.mit.edu/cgi-docs/student.html) actually links to many things not listed below. Check it out.
+
 # Requirements
 
 Overviews:
