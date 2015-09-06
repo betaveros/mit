@@ -11,6 +11,10 @@ layout: default
 
 tl;dr: [Mail Forwarding (mailto.mit.edu)](https://mailto.mit.edu/)
 
+## Sending Email on Behalf of MIT
+
+At least for Gmail: [The Knowledge Base: Send Email from mit.edu address in gmail](https://kb.mit.edu/confluence/display/mitcontrib/Send+Email+from+mit.edu+address+in+gmail)
+
 # Getting To the MIT Server
 
     ssh bpchen@athena.dialup.mit.edu
