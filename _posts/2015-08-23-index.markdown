@@ -11,6 +11,7 @@ A gigantic collection of all the MIT links I think might be useful, many from th
 
 - [academics]({{ site.baseurl }}{% post_url 2015-08-23-academics %}) --- requirements, course evaluations, etc.
 - [tech]({{ site.baseurl }}{% post_url 2015-08-23-tech %})nical details
+- [zephyr/BarnOwl]({{ site.baseurl }}{% post_url 2015-10-13-zephyr %})
 
 ## Important Links
 

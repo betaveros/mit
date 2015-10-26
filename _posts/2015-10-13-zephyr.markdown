@@ -1,0 +1,147 @@
+---
+title: zephyr
+layout: default
+---
+
+[<< back to index <<]({{ site.baseurl }}{% post_url 2015-08-23-index %})
+
+This consists of everything I wish I knew about Zephyr. I use BarnOwl because everybody else does and because it's cool.
+
+## More Colors
+
+BarnOwl does support 256 colors, but it tries to detect if your terminal supports 256 colors upon startup.
+
+If you're using `tmux` like me, adding this line to your `.tmux.conf` probably does the trick:
+
+    set -g default-terminal "screen-256color"
+
+If you do this correctly and run `:show colors` from inside BarnOwl, you should get a list of the eight basic colors and 8 to 255. If you're using `screen`, ask somebody else and tell me how to do it!
+
+## Getting Help
+
+There's `:help`, of course, but it's pretty messy. You can `:help foo` where `foo` is a command to find it.
+
+Also useful index-like things: `:show commands`, `:show variables`, `:show keymaps`.
+
+## Useful Commands
+
+### Sending Zephyrs
+
+- `:zwrite`, but you usually won't type it out; you'll type `z` to start a command line, or one of the reply keys like `r` or `R` or `C-R` (Ctrl+R).
+
+### Reading Zephyrs
+
+- `:subscribe` or `:sub` for short lets you subscribe to a help. You don't have to type any stars or whatever. `:sub <3` is enough to subscribe to class `<3`.
+- `:getsubs` lists what you're subbed to.
+- `:view`:
+
+  - `:view filtername` with a `filtername` you've already defined with a `filter` command to focus on only messages matching that filter.
+  - `:view -d` lets you put together a filter together on the fly, e.g. `:view -d class help and instance barnowl`.
+- `:vp person` narrows to private zephyrs between you and person.
+- `:search` and `:search -r` (autofilled with keys `/` and `?`) let you search for strings. Without any arguments, they repeat the search in the same direction. (Note that unlike Vim, `:search` is always forward and `:search -r` is always backward; they're not influenced by the initial direction of the search.) Because this is still hard to type, I have these mapped to `[` and `]`.
+
+  To stop the search highlighting (as `:nohl` in Vim), call `:setsearch` without any arguments.
+
+- By the way, if you see an asterisk next to a message, that's the "mark". C-space moves the mark to the current message, while C-x C-x swaps your location and the mark. I'm not sure how useful this is for navigation; it's mostly in case you accidentally see an asterisk and wonder what it's there for.
+
+### Plugins
+
+BarnOwl's plugin language is Perl. Sam Hughes' [Learn Perl in about 2 hours 30 minutes](http://qntm.org/files/perl/perl.html) is my favorite Perl tutorial, although I call built-in functions with no arguments to make them implicitly operate on `$_` a lot more often than is healthy.
+
+As best I can figure out, the simplest way to create a plugin is to put something in, for example, `~/.owl/modules/FooBar/lib/BarnOwl/Module/FooBar.pm`. (Shell aside: you can `mkdir -p chain/of/directories` to make all of them at once.) Here's a reasonably minimal example, although I confess I'm not sure what the documentation bits really do.
+
+    use warnings;
+    use strict;
+
+    =head1 NAME
+
+    BarnOwl::Module::FooBar
+
+    =head1 DESCRIPTION
+
+    This is package FooBar. Describe it or whatever. I don't know.
+
+    =cut
+
+    package BarnOwl::Module::FooBar;
+
+    our $VERSION = 0.1.0.2;
+
+    sub cmd_foobar {
+        my $cmd = shift;
+        my $txt = "This was called with command $cmd.\n";
+        for my $i (0..$#_) {
+            $txt .= "Argument $i was $_[$i].\n"
+        }
+        BarnOwl::popless_text($txt);
+    }
+    BarnOwl::new_command('foobar' => \&cmd_foobar, {
+            summary => "Does foobar",
+            description => "Does foobar.\n" .
+            "This is a long description.\n" .
+            "You can see it if you `help foobar`.",
+            usage => "foobar [arg0 [arg1 [...]]]"
+        });
+
+    1;
+
+### Styles
+
+These things control how the messages are shown and laid out on your screen. Stuff like what characters are shown between the class, instance, and sender. If you want to **make a style**, the simplest way is probably to copy the code from `BarnOwl::Style::Default` into a module and change the package paths. If you want to **activate a style**, the BarnOwl command is `:view -s stylename`. This doesn't make any sense.
+
+### Customization
+
+I think this is best done by example. Here's most of the generally applicable stuff in my `~/.owl/startup`:
+
+    filter bpchen -c red class ^(un)*bpchen$
+
+    bindkey recv j command recv:next-notdel
+    bindkey recv k command recv:prev-notdel
+    bindkey recv J command recv:pagedown
+    bindkey recv K command recv:pageup
+    bindkey recv f command smartnarrow
+    bindkey recv F command smartnarrow -i
+    bindkey recv Z command start-command zwrite -c bpchen -i 
+    bindkey recv s command source ~/.owl/startup
+    bindkey recv g command recv:first
+    bindkey recv G command recv:last
+    bindkey recv @ command show keymaps
+    bindkey recv ] command search
+    bindkey recv [ command search -r
+    bindkey popless j command popless:scroll-down-line
+    bindkey popless k command popless:scroll-up-line
+    bindkey popless J command popless:scroll-down-page
+    bindkey popless K command popless:scroll-up-page
+    bindkey popless g command popless:scroll-to-top
+    bindkey popless G command popless:scroll-to-bottom
+
+    timeformat '%y %m-%d %H:%M:%S'
+
+    alias set-style view -s
+    alias nohl setsearch
+    alias h help
+    alias q zwrite bpchen "Don't do this!"
+
+The filter example might be the most useful:
+
+    filter bpchen -c red class ^(un)*bpchen$
+
+This creates a filter named `bpchen` that will make the text of the messages it matches red. It also says that it matches all messages whose class names match the regex `^(un)*bpchen$`. Note that, although the filter name and the class name are often related or similar, they don't have to be. If you type `:view bpchen`, it narrows to this filter.
+
+They are applied at startup, or running `:source ~/.owl/startup` from inside a live BarnOwl session (if you want to keep it running in screen, say) should execute settings from the file. These settings are probably idempotent so it probably wouldn't hurt.
+
+These mappings overwrite a couple of the built-in keymaps for interfacing with Facebook and Jabber and stuff, because I just don't use them.
+
+I do not know how to unalias things. I do not know if it's possible.
+
+## Settings
+
+Well, they're called "variables". The command is `:set variable-name value`.
+
+Boolean variables take values `on` and `off`. Don't ask me why. Admitted, you can just `set variable-name` and `unset variable-name` in that case. (`on` and `off` are also the values you'd get from querying the settings in perl. I'm terribly sorry.)
+
+To see the value and default value of a variable, run `:show variable variable-name`. I do not think there is a way to reset the default value of a variable without explicitly typing or pasting the default value yourself.
+
+## Other Stuff
+
+Sometimes your shell gets wonky, like every character you type is substituted with some unicode or newlines don't exist or anything. The shell command `reset` might fix this.
