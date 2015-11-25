@@ -5,7 +5,15 @@ layout: default
 
 [<< back to index <<]({{ site.baseurl }}{% post_url 2015-08-23-index %})
 
-This consists of everything I wish I knew about Zephyr. I use BarnOwl because everybody else does and because it's cool.
+This consists of everything I wish I knew about Zephyr. I use BarnOwl because everybody else does and because it's cool. SIPB already has useful documentation, of course:
+
+- [SIPB on zephyr and culture](https://sipb.mit.edu/doc/zephyr/), including slang ("mix", "i,i", "stark") and common classes/instances/instance components (unclasses, ".d" classes/instances, ".q", "else"/"eiz"/"eip"/"eim"/"eiw"...)
+- [SIPB on `zcrypt`](https://sipb.mit.edu/doc/zcrypt/)
+- [SIPB on `screen`](https://sipb.mit.edu/doc/screen/)
+
+## Startup
+
+Possibly, `athrun kchen owl-screen`. I prefer `tmux` but I'm not confident how reliable my hacked-together script for doing this is.
 
 ## More Colors
 
@@ -87,7 +95,7 @@ As best I can figure out, the simplest way to create a plugin is to put somethin
 
 ### Styles
 
-These things control how the messages are shown and laid out on your screen. Stuff like what characters are shown between the class, instance, and sender. If you want to **make a style**, the simplest way is probably to copy the code from `BarnOwl::Style::Default` into a module and change the package paths. If you want to **activate a style**, the BarnOwl command is `:view -s stylename`. This doesn't make any sense.
+These things control how the messages are shown and laid out on your screen. Stuff like what characters are shown between the class, instance, and sender. If you want to **make a style**, the simplest way is probably to copy the code from `BarnOwl::Style::Default` into a module and change the package paths. If you want to **activate a style**, the BarnOwl command is `:view -s stylename`. This doesn't make any sense, I think, but I don't know.
 
 ### Customization
 
@@ -138,9 +146,52 @@ I do not know how to unalias things. I do not know if it's possible.
 
 Well, they're called "variables". The command is `:set variable-name value`.
 
-Boolean variables take values `on` and `off`. Don't ask me why. Admitted, you can just `set variable-name` and `unset variable-name` in that case. (`on` and `off` are also the values you'd get from querying the settings in perl. I'm terribly sorry.)
+Boolean variables take values `on` and `off`. Don't ask me why. Admittedly, you can just `set variable-name` and `unset variable-name` in that case. (`on` and `off` are also the values you'd get from querying the settings in perl. I'm terribly sorry.)
 
 To see the value and default value of a variable, run `:show variable variable-name`. I do not think there is a way to reset the default value of a variable without explicitly typing or pasting the default value yourself.
+
+The most common nontrivial zsig setup is to pull a random line from a file, `~/.zsigs`. BarnOwl lets you do this mostly out of the box: set `zsigfunc` to `BarnOwl::random_zephyr_signature()`.
+
+Setting the variable `rxping` shows you pings, which are things that people usually send when they initiate a private message to you. (To not send pings yourself, set `txping` off.) This is either fun or creepy.
+
+## `screen` and `tmux`
+
+[Hyperpolyglot deals with this](http://hyperpolyglot.org/multiplexers) but I don't think that it's actually very good right now. Here's a concise version:
+
+| Operation          | `screen`      | `tmux`         |
+| attach             | `screen -dr`  | `tmux attach`  |
+| default prefix key | C-a           | C-b            |
+| detach             | d             | d              |
+| new window         | c             | c              |
+| close window       | k             | &              |
+| close region/pane  | X             | x              |
+| split top-bottom   | S             | "              |
+| split left-right   |               | %              |
+| last activated     | C-a           |                |
+| list-windows       | C-w           |                |
+| go to window 7     | 7             | 7              |
+| startup file name  | `~/.screenrc` | `~/.tmux.conf` |
+
+benkraft says you can steal [his `.screenrc`](https://github.com/benjaminjkraft/dotfiles/blob/master/.screenrc). As for `~/.tmux.conf`, here's a basic version of mine.
+
+    bind-key a last-window
+    unbind-key %
+    bind-key | split-window -h
+    bind-key s split-window -h
+    unbind-key '"'
+    bind-key - split-window -v
+    bind-key v split-window -v
+
+    bind-key h select-pane -L
+    bind-key j select-pane -D
+    bind-key k select-pane -U
+    bind-key l select-pane -R
+    bind-key C-h resize-pane -L 4
+    bind-key C-j resize-pane -D 4
+    bind-key C-k resize-pane -U 4
+    bind-key C-l resize-pane -R 4
+
+    set -g default-terminal "screen-256color"
 
 ## Other Stuff
 
