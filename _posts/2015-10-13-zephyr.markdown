@@ -105,6 +105,14 @@ These things control how the messages are shown and laid out on your screen. Stu
 
 I think this is best done by example. Here's most of the generally applicable stuff in my `~/.owl/startup`:
 
+    set debug
+    set logging
+    set classlogging
+    set zsigfunc BarnOwl::random_zephyr_signature()
+    set rxping
+
+    zpunt bigben welcome
+
     filter bpchen -c red class ^(un)*bpchen$
 
     bindkey recv j command recv:next-notdel
@@ -129,6 +137,8 @@ I think this is best done by example. Here's most of the generally applicable st
 
     timeformat '%y %m-%d %H:%M:%S'
 
+    alias to zwrite -c bpchen -i →
+    alias at zwrite -c bpchen -i ⌖
     alias set-style view -s
     alias nohl setsearch
     alias h help
