@@ -23,7 +23,11 @@ If you're using `tmux` like me, adding this line to your `.tmux.conf` probably d
 
     set -g default-terminal "screen-256color"
 
-If you do this correctly and run `:show colors` from inside BarnOwl, you should get a list of the eight basic colors and 8 to 255. If you're using `screen`, ask somebody else and tell me how to do it!
+If you do this correctly and run `:show colors` from inside BarnOwl, you should get a list of the eight basic colors and 8 to 255.
+
+[benkraft's `.screenrc`](https://github.com/benjaminjkraft/dotfiles/blob/master/.screenrc) (also linked below) suggests this line for `screen` users:
+
+    term screen-256color-bce
 
 ## Getting Help
 
