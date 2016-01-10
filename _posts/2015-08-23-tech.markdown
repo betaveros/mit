@@ -38,7 +38,9 @@ For more info, see MIT's Knowledge Base: [How do permissions work in AFS?](https
 
 **MIT policy change, June 2015**: To get the MIT web server to list files in a folder without an `index.html`, you now need to explicitly tell it in a `.htaccess.mit` file (in addition to giving `system:anyuser` permission `l`):
 
-    echo "Options +Indexes" > .htaccess.mit
+    echo "Options +Indexes" >> .htaccess.mit
+
+(this appends to `.htaccess.mit` just to be safe, although if you're relying on this page for information, it is likely the file was originally empty anyway)
 
 For more info, see MIT's Knowledge Base: [Why do I get "Forbidden" when trying to view a directory in my Athena locker over the web?](https://kb.mit.edu/confluence/pages/viewpage.action?pageId=154190159)
 
