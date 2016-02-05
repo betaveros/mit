@@ -45,7 +45,7 @@ Also useful index-like things: `:show commands`, `:show variables`, `:show keyma
 
 - `:subscribe` or `:sub` for short lets you subscribe to a help. You don't have to type any stars or whatever. `:sub <3` is enough to subscribe to class `<3`.
 - `:getsubs` lists what you're subbed to.
-- `:view`:
+- `:view` (autofilled with key `v`):
 
   - `:view filtername` with a `filtername` you've already defined with a `filter` command to focus on only messages matching that filter.
   - `:view -d` lets you put together a filter together on the fly, e.g. `:view -d class help and instance barnowl`.
