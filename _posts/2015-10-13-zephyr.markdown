@@ -166,6 +166,14 @@ To see the value and default value of a variable, run `:show variable variable-n
 
 The most common nontrivial zsig setup is to pull a random line from a file, `~/.zsigs`. BarnOwl lets you do this mostly out of the box: set `zsigfunc` to `BarnOwl::random_zephyr_signature()`.
 
+If you'd rather just have a static zsig, you can just `set zsig 'your signature'`.
+
+There is also a more general zephyr (not BarnOwl-specific!) setting, `zwrite-signature`, that BarnOwl will fall back on. To set it, run **from the command line**
+
+    $ zctl set zwrite-signature 'your signature'
+
+This will also change your zsig when you `zwrite` from the command line (`zwrite` in BarnOwl and `zwrite` on the command-line take pretty much the same options).
+
 Setting the variable `rxping` shows you pings, which are things that people usually send when they initiate a private message to you. (To not send pings yourself, set `txping` off.) This is either fun or creepy.
 
 ## `screen` and `tmux`
